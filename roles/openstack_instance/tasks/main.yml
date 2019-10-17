@@ -29,5 +29,13 @@
     count={{ count }}
 
 
+# For merging two lists together
+#https://docs.ansible.com/ansible/latest/plugins/lookup/together.html
+# - name: item.0 returns from the 'a' list, item.1 returns from the '1' list
+#   debug:
+#     msg: "{{ item.0 }} and {{ item.1 }}"
+#   with_together:
+#     - ['a', 'b', 'c', 'd']
+#     - [1, 2, 3, 4]
 
 # ------------------------------------ end of production ---------------
