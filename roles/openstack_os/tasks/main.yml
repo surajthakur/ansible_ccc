@@ -38,7 +38,28 @@
 
 # --------------------- end production -------------
 
-
+# Alternative
+# Register a variable while creating the instance and then write the IP in to an inventory file using the variable details
+# Ex : 
+# - name: Write [webproserver] and [dbserver] into the file
+#  become: yes
+#  lineinfile:
+#    dest: inventory
+#    line: '{{ item }}'
+#    create: yes
+#    insertafter: EOF
+#  with_items:
+#    - '[webproserver]'
+#    - '[dbserver]'
+#
+#- name: Write the IP address of web and processor server node into inventory file
+#  become: yes
+#  lineinfile:
+#    dest: inventory
+#    line: '{{ item.server.public_v4 }}'
+#    state: present
+#    insertafter: '^\[webproserver\]'
+#  loop: '{{ os_webproinstance.results }}'
 
 
 
